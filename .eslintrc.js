@@ -23,6 +23,7 @@ module.exports = {
         'i18next',
     ],
     rules: {
+        'max-len': ['error', { code: 120, ignoreComments: true }],
         'i18next/no-literal-string': ['error', { markupOnly: true }],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
