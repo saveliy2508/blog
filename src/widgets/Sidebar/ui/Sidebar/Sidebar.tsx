@@ -16,8 +16,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
     return (
-        <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button theme={ThemeButton.CLEAR} onClick={onToggle}>{t('Переключатель темы')}</Button>
+        <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+            <Button
+                data-testid="sidebar-toggle"
+                theme={ThemeButton.CLEAR}
+                onClick={onToggle}
+            >
+                {t('Переключатель темы')}
+            </Button>
         </div>
     );
 };
