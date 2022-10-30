@@ -1,3 +1,3 @@
-import { ErrorPage } from 'widgets/PageError/ui/ErrorPage';
+import { PageError } from 'widgets/PageError/ui/PageError';
 
-export { ErrorPage };
+export { PageError };

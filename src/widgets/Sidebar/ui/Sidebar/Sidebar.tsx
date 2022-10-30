@@ -22,7 +22,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 theme={ThemeButton.CLEAR}
                 onClick={onToggle}
             >
-                {t('Переключатель темы')}
+                {t('Свернуть')}
             </Button>
         </div>
     );
