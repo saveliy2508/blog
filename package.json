@@ -17,7 +17,7 @@
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "test:ci": "npm run build && npm run lint:ts && npm run lint:scss && npm run test:unit && npm run storybook:build && test:ui:ci"
+    "test:ci": "npm run build:prod && npm run lint:ts && npm run lint:scss && npm run test:unit && npm run storybook:build && test:ui:ci"
   },
   "keywords": [],
   "author": "",
