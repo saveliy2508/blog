@@ -1,14 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import React from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
-export const LangSwitcher = () => {
+interface LangSwitcherProps {
+    short?: boolean
+}
+
+export const LangSwitcher = ({ short = false } : LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
     return (
-        <Button theme={ThemeButton.CLEAR} onClick={toggle}>{t('Кнопка перевода')}</Button>
+        <Button
+            theme={ButtonTheme.CLEAR}
+            onClick={toggle}
+        >
+            {t(short ? 'Короткая кнопка перевода' : 'Кнопка перевода')}
+        </Button>
     );
 };

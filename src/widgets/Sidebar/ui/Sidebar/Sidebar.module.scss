@@ -4,8 +4,53 @@
     background: var(--inverted-bg-color);
     position: relative;
     transition: width 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .switcher {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    span {
+        margin-left: 20px;
+        display: none;
+    }
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -40px;
+    bottom: 40px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    svg {
+        fill: var(--inverted-secondary-color);
+    }
+
+    span {
+        margin-left: 20px;
+    }
 }
