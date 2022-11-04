@@ -1,9 +1,10 @@
-name: linting, testing, building
+name: Front-end app CI
+
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [master]
+    branches:
+      - '*'
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -12,12 +13,15 @@ jobs:
         node-version: [ 17.x ]
 
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: install modules
         run: npm install
+
       - name: Run the tests
         run: npm run test:ci
