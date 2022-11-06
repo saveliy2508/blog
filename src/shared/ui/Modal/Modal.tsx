@@ -1,8 +1,8 @@
-import React, {
+import {
     FC, MouseEvent, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classnames/classNames';
-import { Portal } from 'shared/ui/Portal';
+import { classNames } from 'shared/lib';
+import { Portal } from 'shared/ui';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -16,7 +16,9 @@ export const Modal: FC<ModalProps> = ({
     className, children, isOpen, lazy, onClose,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
+
     const [isMounted, setIsMounted] = useState(false);
+
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const closeHandler = useCallback(() => {

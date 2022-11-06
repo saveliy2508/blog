@@ -10,8 +10,8 @@
   "about": "About",
   "Свернуть": "Collapse",
   "Короткая кнопка перевода": "EN",
-  "Введите username": "Введите username",
-  "Введите пароль": "Введите пароль",
-  "Войти": "Войти",
-  "Open modal": "Open modal"
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password",
+  "Войти": "Log in",
+  "Открыть модал": "Open modal"
 }

@@ -1,3 +1,1 @@
-import { Sidebar } from './ui/Sidebar/Sidebar';
-
-export { Sidebar };
+export * from './ui/Sidebar/Sidebar';

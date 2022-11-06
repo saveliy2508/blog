@@ -25,7 +25,10 @@ module.exports = {
     ],
     rules: {
         'max-len': ['error', { code: 120, ignoreComments: true }],
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true,
+            ignoreAttribute: ['data-testid', 'to'],
+        }],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -52,17 +55,11 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',
-            },
-        },
-        {
-            files: ['**/src/**/*.stories.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 'off',
-                'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
             },
         },
     ],

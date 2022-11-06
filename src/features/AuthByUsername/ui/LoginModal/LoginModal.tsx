@@ -1,6 +1,5 @@
-import React from 'react';
-import { classNames } from 'shared/lib/classnames/classNames';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { classNames } from 'shared/lib';
+import { Modal } from 'shared/ui';
 import cls from './LoginModal.module.scss';
 import { LoginForm } from '../LoginForm/LoginForm';
 

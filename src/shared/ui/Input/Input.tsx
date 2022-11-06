@@ -1,7 +1,8 @@
-import React, {
+import {
+    ChangeEvent,
     InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classnames/classNames';
+import { classNames } from 'shared/lib';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -22,9 +23,10 @@ export const Input = memo((props : InputProps) => {
     const ref = useRef<HTMLInputElement>();
 
     const [isFocused, setIsFocused] = useState(false);
+
     const [caretPosition, setCaretPosition] = useState(0);
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };

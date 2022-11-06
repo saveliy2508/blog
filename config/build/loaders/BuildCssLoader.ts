@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function buildCssLoaders(isDev: boolean) {
+export function buildCssLoader(isDev: boolean) {
     return {
         test: /\.s[ac]ss$/i,
         use: [
@@ -9,7 +9,7 @@ export function buildCssLoaders(isDev: boolean) {
                 loader: 'css-loader',
                 options: {
                     modules: {
-                        auto: (resPath: string) => resPath.includes('.module.'),
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
                         localIdentName: isDev
                             ? '[path][name]__[local]'
                             : '[hash:base64:8]',

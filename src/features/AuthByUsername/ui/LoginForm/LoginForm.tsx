@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { classNames } from 'shared/lib/classnames/classNames';
+import { useState } from 'react';
+import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { Button, Input } from 'shared/ui';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {

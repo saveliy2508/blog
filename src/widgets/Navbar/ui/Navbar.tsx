@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react';
-import { classNames } from 'shared/lib/classnames/classNames';
+import { FC, useState } from 'react';
+import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
@@ -11,14 +11,23 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
     const { t } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
+
+    const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
+
+    const handleOpenLoginModal = () => {
+        setIsOpenLoginModal(true);
+    };
+
+    const handleCloseLoginModal = () => {
+        setIsOpenLoginModal(false);
+    };
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <Button onClick={() => setIsOpen(true)}>
-                {t('Open modal')}
+            <Button onClick={handleOpenLoginModal}>
+                {t('Открыть модал')}
             </Button>
-            <LoginModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+            <LoginModal isOpen={isOpenLoginModal} onClose={handleCloseLoginModal} />
         </div>
     );
 };
