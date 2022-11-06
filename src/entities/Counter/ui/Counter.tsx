@@ -24,7 +24,7 @@ export const Counter = () => {
                 {counterValue}
             </h1>
             <Button data-testid="increment-btn" onClick={increment}>{t('increment')}</Button>
-            <Button data-testid="decrement-btn" onClick={decrement}>{t('increment')}</Button>
+            <Button data-testid="decrement-btn" onClick={decrement}>{t('decrement')}</Button>
         </div>
     );
 };
