@@ -16,10 +16,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <Button onClick={() => setIsOpen(true)}>
-                Open modal
+                {t('Open modal')}
             </Button>
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet id iste iusto laudantium pariatur porro, veritatis? Aliquam consequatur deserunt dolorum eaque, molestiae molestias officiis optio sapiente, similique veritatis voluptate!
+                {t('lorem')}
             </Modal>
         </div>
     );

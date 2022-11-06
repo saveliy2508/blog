@@ -12,10 +12,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }, [theme]);
 
     return (
-        useMemo(() => (
-            <ThemeContext.Provider value={{ theme, setTheme }}>
-                {children}
-            </ThemeContext.Provider>
-        ), [children, theme])
+        // eslint-disable-next-line react/jsx-no-constructed-context-values
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+            {children}
+        </ThemeContext.Provider>
     );
 };
