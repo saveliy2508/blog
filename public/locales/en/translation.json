@@ -13,5 +13,7 @@
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Войти": "Log in",
-  "Открыть модал": "Open modal"
+  "Форма авторизации": "Auth form",
+  "Неверный логин или пароль": "Incorrect login or password",
+  "Выйти": "Logout"
 }
