@@ -27,7 +27,7 @@ module.exports = {
         'max-len': ['error', { code: 120, ignoreComments: true }],
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'name'],
         }],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
