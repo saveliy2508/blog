@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useDispatch, useStore } from 'react-redux';
 import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
@@ -15,7 +14,7 @@ interface DynamicModulesLoaderProps {
     removeAfterUnmount?: boolean;
 }
 
-export const DynamicModulesLoader: FC<DynamicModulesLoaderProps> = ({
+export const DynamicModuleLoader: FC<DynamicModulesLoaderProps> = ({
     children, removeAfterUnmount = true, reducers,
 }) => {
     const dispatch = useDispatch();
@@ -30,7 +29,7 @@ export const DynamicModulesLoader: FC<DynamicModulesLoaderProps> = ({
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name, reducer]:ReducersListEntry) => {
+                Object.entries(reducers).forEach(([name]:ReducersListEntry) => {
                     store.reducerManager.remove(name);
                     dispatch({ type: `@DESTROY ${name} reducer` });
                 });
@@ -38,6 +37,7 @@ export const DynamicModulesLoader: FC<DynamicModulesLoaderProps> = ({
         };
         // eslint-disable-next-line
     }, []);
+
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>

@@ -9,9 +9,9 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (
-    <Suspense fallback={<Loader />}>
-        <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
+        <Suspense fallback={<Loader />}>
             <LoginFormAsync />
-        </Modal>
-    </Suspense>
+        </Suspense>
+    </Modal>
 );

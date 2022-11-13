@@ -7,7 +7,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { DynamicModulesLoader, ReducersList } from 'shared/lib/components/DynamicModulesLoader/DynamicModulesLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModulesLoader/DynamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -54,7 +54,7 @@ const LoginForm = memo(({ className } : LoginFormProps) => {
     );
 
     return (
-        <DynamicModulesLoader reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
                 {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
@@ -75,7 +75,7 @@ const LoginForm = memo(({ className } : LoginFormProps) => {
                 />
                 <Button disabled={isLoading} onClick={onLoginClick} className={cls.loginBtn}>{t('Войти')}</Button>
             </div>
-        </DynamicModulesLoader>
+        </DynamicModuleLoader>
     );
 });
 

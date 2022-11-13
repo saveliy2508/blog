@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { Counter } from 'entities/Counter';
 import { userEvent } from '@storybook/testing-library';
-import { componentRender } from '../../../../config/tests/componentRender/componentRender';
+import { componentRender } from '../../../shared/lib/tests/componentRender/componentRender';
 
 describe('Counter', () => {
     test('test render', () => {
