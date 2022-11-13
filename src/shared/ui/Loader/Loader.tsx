@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import cls from './Loader.module.scss';
 
 interface LoaderProps {
     className?: string
 }
 
-export const Loader = ({ className } : LoaderProps) => (
+export const Loader = memo(({ className } : LoaderProps) => (
     <div className={cls.spinner}>
         <div />
         <div />
@@ -19,4 +20,4 @@ export const Loader = ({ className } : LoaderProps) => (
         <div />
         <div />
     </div>
-);
+));

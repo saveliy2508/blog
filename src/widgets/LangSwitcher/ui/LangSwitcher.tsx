@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
@@ -5,7 +6,7 @@ interface LangSwitcherProps {
     short?: boolean
 }
 
-export const LangSwitcher = ({ short = false } : LangSwitcherProps) => {
+export const LangSwitcher = memo(({ short = false } : LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
@@ -19,4 +20,4 @@ export const LangSwitcher = ({ short = false } : LangSwitcherProps) => {
             {t(short ? 'Короткая кнопка перевода' : 'Кнопка перевода')}
         </Button>
     );
-};
+});

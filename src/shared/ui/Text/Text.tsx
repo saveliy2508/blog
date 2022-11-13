@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
 import cls from './Text.module.scss';
@@ -14,7 +15,7 @@ interface TextProps {
     theme?:TextTheme
 }
 
-export const Text = ({
+export const Text = memo(({
     className, title, text, theme = TextTheme.PRIMARY,
 } : TextProps) => {
     const { t } = useTranslation();
@@ -24,4 +25,4 @@ export const Text = ({
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );
-};
+});

@@ -35,5 +35,14 @@
       "password": "1232"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Савелий",
+    "lastname": "Вольский",
+    "age": 23,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Saint-Petersburg",
+    "username": "admin",
+    "avatar": "https://storage.theoryandpractice.ru/tnp/uploads/image_unit/000/156/586/image/base_87716f252d.jpg"
+  }
 }

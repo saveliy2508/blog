@@ -5,16 +5,16 @@ import {
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useTranslation } from 'react-i18next';
-import HomeIcon from 'shared/assets/icons/menu-home-icon.svg';
-import AboutIcon from 'shared/assets/icons/about-home-icon.svg';
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
+import { SidebarItemsList } from 'widgets/Sidebar/model/items';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const { t } = useTranslation();
@@ -23,17 +23,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
 
+    const itemList = useMemo(() => SidebarItemsList
+        .map((item) => <SidebarItem key={item.path} collapsed={collapsed} item={item} />), [collapsed]);
+
     return (
         <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <div className={cls.links}>
-                <AppLink to="/" theme={AppLinkTheme.SECONDARY}>
-                    <HomeIcon />
-                    <span>{t('main')}</span>
-                </AppLink>
-                <AppLink to="/about" theme={AppLinkTheme.SECONDARY}>
-                    <AboutIcon />
-                    <span>{t('about')}</span>
-                </AppLink>
+                {itemList}
             </div>
             <div className={cls.controls}>
                 <LangSwitcher />
@@ -51,4 +47,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </Button>
         </div>
     );
-};
+});

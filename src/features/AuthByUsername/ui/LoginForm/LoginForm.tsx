@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, useAppDispatch } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
     Button, Input, Text, TextTheme,
@@ -15,17 +15,18 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
-    className?: string
+    className?: string;
+    onSuccess: ()=> void;
 }
 
 const initialReducers: ReducersList = {
     login: loginReducer,
 };
 
-const LoginForm = memo(({ className } : LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess } : LoginFormProps) => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -47,10 +48,13 @@ const LoginForm = memo(({ className } : LoginFormProps) => {
     );
 
     const onLoginClick = useCallback(
-        () => {
-            dispatch(loginByUsername({ username, password }));
+        async () => {
+            const result = await dispatch(loginByUsername({ username, password }));
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+            }
         },
-        [dispatch, password, username],
+        [dispatch, onSuccess, password, username],
     );
 
     return (
