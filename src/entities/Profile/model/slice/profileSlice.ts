@@ -1,17 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchProfileData } from 'entities/Profile';
 import { Profile, ProfileSchema } from '../types/profile';
 
 const initialState: ProfileSchema = {
     isLoading: false,
     readonly: false,
-    error: undefined,
+    error: '',
     data: undefined,
 };
 
 export const profileSlice = createSlice({
-    name: 'counter',
+    name: 'profile',
     initialState,
     reducers: {
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchProfileData.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(fetchProfileData.fulfilled, (
+                state,
+                action: PayloadAction<Profile>,
+            ) => {
+                state.isLoading = false;
+                state.data = action.payload;
+            })
+            .addCase(fetchProfileData.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            });
     },
 });
 

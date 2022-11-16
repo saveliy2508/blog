@@ -1,6 +1,6 @@
 import {
     ChangeEvent,
-    InputHTMLAttributes, memo, useEffect, useRef, useState,
+    InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib';
 import cls from './Input.module.scss';
@@ -20,7 +20,7 @@ export const Input = memo((props : InputProps) => {
         className, autofocus, value, onChange, type = 'text', placeholder, ...otherProps
     } = props;
 
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
     const [isFocused, setIsFocused] = useState(false);
 
@@ -46,7 +46,7 @@ export const Input = memo((props : InputProps) => {
     useEffect(() => {
         if (autofocus) {
             setIsFocused(true);
-            ref.current.focus();
+            ref.current?.focus();
         }
     }, [autofocus]);
 

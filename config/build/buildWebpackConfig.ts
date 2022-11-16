@@ -6,16 +6,18 @@ import { buildResolvers } from './buildResolvers';
 import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const { mode, paths, isDev } = options;
+    const {
+        mode, paths, isDev, apiUrl,
+    } = options;
     return {
         mode,
-        entry: paths.entry,
+        entry: paths?.entry,
         output: {
             filename: '[name].[contenthash].js',
-            path: paths.build,
+            path: paths?.build,
             clean: true,
         },
-        plugins: buildPlugins({ paths, isDev }),
+        plugins: buildPlugins({ paths, isDev, apiUrl }),
         module: {
             rules: buildLoaders(options),
         },
