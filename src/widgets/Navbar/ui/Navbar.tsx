@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui';

@@ -1,12 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
 import {
-    Button, ButtonTheme, Input, Loader, Text, TextAlign, TextTheme,
+    Input, Loader, Text, TextAlign, TextTheme,
 } from 'shared/ui';
 import { Profile } from 'entities/Profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
@@ -45,7 +44,7 @@ export const ProfileCard = (props : ProfileCardProps) => {
         onChangeCountry,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const validateAgeChange = (value: string) => {
         if (/^(\d){0,3}$/g.test(value)) {

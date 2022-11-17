@@ -1,5 +1,5 @@
 import React, {
-    ButtonHTMLAttributes, FC, memo, ReactNode,
+    ButtonHTMLAttributes, memo, ReactNode,
 } from 'react';
 import { classNames } from 'shared/lib';
 import { Mods } from 'shared/lib/classNames/classNames';
