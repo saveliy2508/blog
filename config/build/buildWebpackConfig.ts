@@ -7,7 +7,7 @@ import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const {
-        mode, paths, isDev, apiUrl,
+        mode, paths, isDev, apiUrl, project,
     } = options;
     return {
         mode,
@@ -17,7 +17,9 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             path: paths?.build,
             clean: true,
         },
-        plugins: buildPlugins({ paths, isDev, apiUrl }),
+        plugins: buildPlugins({
+            paths, isDev, apiUrl, project,
+        }),
         module: {
             rules: buildLoaders(options),
         },
