@@ -19,8 +19,11 @@
     --sidebar-width-collapsed: 80px;
 
     // Colors
-
     --overlay-color: rgb(0 0 0 / 70%);
     --red-light: #f00;
     --red-dark: #b10101;
+
+    // z-indexes
+
+    --collapse-button-z-index: 10;
 }
