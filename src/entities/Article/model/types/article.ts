@@ -36,10 +36,12 @@ export enum ArticleType {
 
 export interface Article {
     id: string;
+    userId: string;
     title: string;
     subtitle: string;
     img: string;
     createdAt: string;
+    views: number;
     type: ArticleType[];
     blocks: ArticleBlock[];
 }

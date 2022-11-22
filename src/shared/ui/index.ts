@@ -7,3 +7,5 @@ export * from './Portal/Portal';
 export * from './Text/Text';
 export * from './Avatar/Avatar';
 export * from './Select/Select';
+export * from './Icon/Icon';
+export * from './Skeleton/Skeleton';

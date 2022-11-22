@@ -1,17 +1,11 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import { fetchArticleById } from '../services/fetchArticleById';
+import {
+    Article, ArticleBlockType, ArticleType,
+} from '../../model/types/article';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
-export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
-
-const article: Article = {
+const data: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -84,10 +78,17 @@ const article: Article = {
     ],
 };
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+describe('articleDetailsSlice.test', () => {
+    test('test fetch article service fulfilled', () => {
+        const state: DeepPartial<ArticleDetailsSchema> = {
+        };
+        expect(articleDetailsReducer(
+            state as ArticleDetailsSchema,
+            fetchArticleById.fulfilled(data, '', ''),
+        )).toEqual({
+            isLoading: false,
+            error: undefined,
+            data,
+        });
+    });
+});

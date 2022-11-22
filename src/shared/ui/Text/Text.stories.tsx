@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -59,3 +59,10 @@ ErrorDark.args = {
     theme: TextTheme.ERROR,
 };
 ErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PrimaryL = Template.bind({});
+PrimaryL.args = {
+    title: 'Title lorem ipsum',
+    text: 'Descript onDescri ptionDescription Description',
+    size: TextSize.L,
+};

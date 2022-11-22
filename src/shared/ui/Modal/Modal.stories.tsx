@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { Modal } from './Modal';
 
 export default {
-    title: 'components/Modal',
+    title: 'shared/Modal',
     component: Modal,
 } as ComponentMeta<typeof Modal>;
 

@@ -2,11 +2,14 @@ body.anime {
     --bg-color: #d354cb;
     --inverted-bg-color: #fbf4fa;
     --primary-color: #fbf4fa;
-    --secondary-color: #d354cb;
+    --secondary-color: #223782;
     --inverted-primary-color: #7d34cb;
     --inverted-secondary-color: #ac7dde;
 
     // skeleton
     --skeleton-color: #a662ac;
     --skeleton-shadow: #ff63fe;
+
+    // code
+    --code-bg: rgb(0 89 255 / 54%);
 }
