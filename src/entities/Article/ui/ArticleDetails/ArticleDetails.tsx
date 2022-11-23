@@ -11,6 +11,7 @@ import {
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import CalendarIcon from 'shared/assets/icons/date-icon.svg';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -78,10 +79,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         [],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
     }, [dispatch, id]);
 
     let content;
