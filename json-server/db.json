@@ -109,6 +109,30 @@
       "text": "some comment 4",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qqweqwqq",
+      "id": "BikzZ27"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qqweqwqq",
+      "id": "Cfiwxu8"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello",
+      "id": "Ka7Nf4R"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "werw",
+      "id": "CxV4e9b"
     }
   ],
   "users": [
@@ -126,14 +150,28 @@
       "role": "USER"
     }
   ],
-  "profile": {
-    "first": "Савелий",
-    "lastname": "Вольский",
-    "age": 23,
-    "currency": "USD",
-    "country": "USA",
-    "city": "Saint-Petersburgqq",
-    "username": "admin",
-    "avatar": "https://storage.theoryandpractice.ru/tnp/uploads/image_unit/000/156/586/image/base_87716f252d.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Савелий",
+      "lastname": "Вольский",
+      "age": 23,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Saint-Petersburgqq",
+      "username": "admin",
+      "avatar": "https://storage.theoryandpractice.ru/tnp/uploads/image_unit/000/156/586/image/base_87716f252d.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Vasya",
+      "lastname": "Pupkin",
+      "age": 14,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Kharkov",
+      "username": "Vpup",
+      "avatar": "https://storage.theoryandpractice.ru/tnp/uploads/image_unit/000/156/586/image/base_87716f252d.jpg"
+    }
+  ]
 }
