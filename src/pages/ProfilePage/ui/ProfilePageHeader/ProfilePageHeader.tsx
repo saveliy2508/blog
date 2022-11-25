@@ -28,7 +28,7 @@ export const ProfilePageHeader = ({ className } : ProfilePageHeaderProps) => {
         () => {
             if (authData) dispatch(updateProfileData(authData.id));
         },
-        [authData.id, dispatch],
+        [authData, dispatch],
     );
 
     const onEdit = useCallback(

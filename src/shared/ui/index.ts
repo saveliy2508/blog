@@ -9,3 +9,4 @@ export * from './Avatar/Avatar';
 export * from './Select/Select';
 export * from './Icon/Icon';
 export * from './Skeleton/Skeleton';
+export * from './Card/Card';

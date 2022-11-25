@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib';
 import { AppLink, AppLinkTheme } from 'shared/ui';
 import { getUserAuthData } from 'entities/User';
 import { useSelector } from 'react-redux';
-import { SidebarItemType } from '../../model/items';
+import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
