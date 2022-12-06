@@ -1,7 +1,20 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
+import {
+    classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
+} from 'shared/lib';
+import {
+    Article, ArticleList, ArticleView, ArticleViewSelector,
+} from 'entities/Article';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useSelector } from 'react-redux';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/ArticlesPageSlice';
+import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
+import {
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -85,20 +98,44 @@ const article = {
     ],
 } as Article;
 
+const reducers: ReducersList = {
+    articlesPage: articlesPageReducer,
+};
+
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const { t } = useTranslation('article');
+
+    const dispatch = useAppDispatch();
+
+    const articles = useSelector(getArticles.selectAll);
+
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const view = useSelector(getArticlesPageView);
+
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlesPageActions.setView(view));
+        },
+        [dispatch],
+    );
+
+    useInitialEffect(() => {
+        dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
+    }, []);
+
     return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>
-            <ArticleList
-                view={ArticleView.BIG}
-                articles={
-                    new Array(16)
-                        .fill(0).map((item, index) => ({
-                            ...article,
-                        }))
-                }
-            />
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={classNames(cls.ArticlesPage, {}, [className])}>
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticleList
+                    isLoading={isLoading}
+                    view={view}
+                    articles={articles}
+                />
+            </div>
+        </DynamicModuleLoader>
     );
 };
 
