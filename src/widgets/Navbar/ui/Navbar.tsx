@@ -43,11 +43,11 @@ export const Navbar = memo(({ className }:NavbarProps) => {
     }
 
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
             <Button onClick={handleOpenLoginModal}>
                 {t('Войти')}
             </Button>
             {isOpenLoginModal && <LoginModal isOpen={isOpenLoginModal} onClose={handleCloseLoginModal} />}
-        </div>
+        </header>
     );
 });

@@ -5,7 +5,9 @@ import {
 } from 'shared/lib';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ButtonTheme, Text, Button } from 'shared/ui';
+import {
+    ButtonTheme, Text, Button, Page,
+} from 'shared/ui';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -62,7 +64,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINE}>
                     {t('Назад к списку')}
                 </Button>
@@ -73,7 +75,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
