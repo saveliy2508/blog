@@ -10,4 +10,4 @@ export * from './Select/Select';
 export * from './Icon/Icon';
 export * from './Skeleton/Skeleton';
 export * from './Card/Card';
-export * from './Page/Page';
+export * from '../../widgets/Page/Page';
