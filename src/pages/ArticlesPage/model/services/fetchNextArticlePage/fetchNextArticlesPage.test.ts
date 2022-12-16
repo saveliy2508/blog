@@ -38,6 +38,6 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticlesList).not.toHaveBeenCalledWith({});
+        expect(fetchArticlesList).not.toHaveBeenCalledWith();
     });
 });
