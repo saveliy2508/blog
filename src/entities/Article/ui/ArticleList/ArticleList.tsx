@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui';
+import { Text, TextSize } from 'shared/ui';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
@@ -39,13 +39,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
-    // if (articles.length === 0) {
-    //     return (
-    //         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-    //             <Text title={t('Статей нет')} />
-    //         </div>
-    //     );
-    // }
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title={t('Статей нет')} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

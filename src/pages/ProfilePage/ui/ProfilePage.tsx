@@ -17,7 +17,8 @@ import { Country } from 'entities/Country';
 import {
     getProfileValidateErrors,
 } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { Page, Text, TextTheme } from 'shared/ui';
+import { Text, TextTheme } from 'shared/ui';
+import { Page } from 'widgets/Page/Page';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';

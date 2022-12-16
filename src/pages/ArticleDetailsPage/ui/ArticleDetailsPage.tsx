@@ -6,8 +6,9 @@ import {
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-    ButtonTheme, Text, Button, Page,
+    ButtonTheme, Text, Button,
 } from 'shared/ui';
+import { Page } from 'widgets';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';

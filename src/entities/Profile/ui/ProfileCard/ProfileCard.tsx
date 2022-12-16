@@ -6,9 +6,9 @@ import {
 import { Profile } from 'entities/Profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
-import { Currency } from 'entities/Currency/model/types/currency';
-import { CurrencySelect } from 'entities/Currency';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { Page } from 'widgets/Page/Page';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -64,14 +64,14 @@ export const ProfileCard = (props : ProfileCardProps) => {
 
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <Page className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     title={t('Произошла ошибка при загрузке профиля')}
                     theme={TextTheme.ERROR}
                     text={t('Попробуйте обновить страницу')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </Page>
         );
     }
 

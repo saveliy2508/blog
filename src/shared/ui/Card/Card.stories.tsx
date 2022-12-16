@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Text } from 'shared/ui';
+import { CardTheme, Text } from 'shared/ui';
 import { Card } from './Card';
 
 export default {
@@ -21,3 +21,15 @@ Dark.args = {
     children: <Text title="test" text="test" />,
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NORMAL = Template.bind({});
+NORMAL.args = {
+    theme: CardTheme.NORMAL,
+    children: <Text title="test" text="test" />,
+};
+
+export const OUTLINED = Template.bind({});
+OUTLINED.args = {
+    theme: CardTheme.OUTLINED,
+    children: <Text title="test" text="test" />,
+};

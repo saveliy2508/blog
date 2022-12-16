@@ -10,4 +10,5 @@ export * from './Select/Select';
 export * from './Icon/Icon';
 export * from './Skeleton/Skeleton';
 export * from './Card/Card';
-export * from '../../widgets/Page/Page';
+export * from './Tabs/Tabs';
+export * from './Code/Code';

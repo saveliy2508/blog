@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { ArticleViewSelector } from './ArticleViewSelector';
+import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
-    title: 'entities/Article/ArticleViewSelector',
-    component: ArticleViewSelector,
-} as ComponentMeta<typeof ArticleViewSelector>;
+    title: 'pages/ArticlesPageFilters',
+    component: ArticlesPageFilters,
+} as ComponentMeta<typeof ArticlesPageFilters>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
+const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};
