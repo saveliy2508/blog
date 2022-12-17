@@ -1,10 +1,13 @@
 import { memo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui';
+import {
+    AppLink, AppLinkTheme, Button, Text, TextTheme,
+} from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -35,9 +38,25 @@ export const Navbar = memo(({ className }:NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
-                <Button onClick={handleLogout}>
-                    {t('Выйти')}
-                </Button>
+                <div>
+                    <Text
+                        className={cls.appName}
+                        title={t('BLOG APP')}
+                        theme={TextTheme.INVERTED}
+                    />
+                </div>
+                <div>
+                    <AppLink
+                        to={RoutePath.article_create}
+                        theme={AppLinkTheme.SECONDARY}
+                        className={cls.createBtn}
+                    >
+                        {t('Создать статью')}
+                    </AppLink>
+                    <Button onClick={handleLogout}>
+                        {t('Выйти')}
+                    </Button>
+                </div>
             </div>
         );
     }

@@ -14,21 +14,22 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import {
     getArticleRecommendations,
-} from '../model/slices/articleDetailsPageRecommendationsSlice';
+} from '../../model/slices/articleDetailsPageRecommendationsSlice';
 import {
     fetchArticleRecommendations,
-} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import {
     fetchCommentsByArticleId,
-} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import { articleDetailsPageReducer } from '../model/slices';
+import { articleDetailsPageReducer } from '../../model/slices';
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -49,12 +50,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const navigate = useNavigate();
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-    const onBackToList = useCallback(
-        () => {
-            navigate(RoutePath.articles);
-        },
-        [navigate],
-    );
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
@@ -80,12 +75,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <Page
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
-                <Button
-                    onClick={onBackToList}
-                    theme={ButtonTheme.OUTLINE}
-                >
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text
                     className={cls.commentTitle}
