@@ -5,26 +5,21 @@ import {
 } from 'shared/lib';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-    ButtonTheme, Text, Button,
-} from 'shared/ui';
+import { Text } from 'shared/ui';
 import { Page } from 'widgets';
 import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import {
-    getArticleRecommendations,
-} from '../../model/slices/articleDetailsPageRecommendationsSlice';
+    ArticleDetailsPageHeader,
+} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice';
 import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
