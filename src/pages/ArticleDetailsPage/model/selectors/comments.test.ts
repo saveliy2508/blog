@@ -18,10 +18,10 @@ describe('comments.test', () => {
     test('should return error value', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetailsPage: {
-                comments: { isLoading: false },
+                comments: { error: 'err' },
             },
         };
-        expect(getArticleCommentsError(state as StateSchema)).toEqual('false');
+        expect(getArticleCommentsError(state as StateSchema)).toEqual('err');
     });
     test('error should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};

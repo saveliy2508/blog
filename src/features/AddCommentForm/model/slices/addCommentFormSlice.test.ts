@@ -1,7 +1,7 @@
 import { AddCommentFormSchema } from '../types/AddCommentForm';
 import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice';
 
-describe('Slice.test', () => {
+describe('addCommentFormSlice.test', () => {
     test('test', () => {
         const state: DeepPartial<AddCommentFormSchema> = { text: '' };
         expect(addCommentFormReducer(

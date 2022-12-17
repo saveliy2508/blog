@@ -21,12 +21,12 @@ describe('addCommentFormSelectors.test', () => {
     test('should return error', () => {
         const state: DeepPartial<StateSchema> = {
             addCommentForm: {
-                error: 'qwe',
+                error: 'err',
             },
         };
-        expect(getAddCommentFormError(state as StateSchema)).toEqual('qwe');
+        expect(getAddCommentFormError(state as StateSchema)).toEqual('err');
     });
-    test('should work with empty state', () => {
+    test('error should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getAddCommentFormError(state as StateSchema)).toEqual(undefined);
     });
