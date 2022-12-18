@@ -1,4 +1,5 @@
-import { counterReducer, counterActions, CounterSchema } from 'entities/Counter';
+import { CounterSchema } from '../types/counterShema';
+import { counterReducer, counterActions } from '../slice/counterSlice';
 
 describe('counterSlice.test', () => {
     const state: CounterSchema = {

@@ -3,12 +3,12 @@ import { classNames } from 'shared/lib';
 import {
     Input, Loader, Text, TextAlign, TextTheme,
 } from 'shared/ui';
-import { Profile } from 'entities/Profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { Page } from 'widgets/Page/Page';
+import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

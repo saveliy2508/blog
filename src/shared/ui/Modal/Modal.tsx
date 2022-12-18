@@ -2,8 +2,8 @@ import {
     FC, MouseEvent, MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib';
-import { Portal } from 'shared/ui';
 import { Mods } from 'shared/lib/classNames/classNames';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {

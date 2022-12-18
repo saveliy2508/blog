@@ -1,4 +1,4 @@
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from './hooks/useAppDispatch';
 import { classNames } from './classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from './components/DynamicModulesLoader/DynamicModuleLoader';
 
