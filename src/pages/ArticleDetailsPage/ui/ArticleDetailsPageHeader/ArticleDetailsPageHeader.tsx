@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme } from 'shared/ui';
+import { Button, ButtonTheme, HStack } from 'shared/ui';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -37,7 +37,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     );
 
     return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
             <Button
                 onClick={onBackToList}
                 theme={ButtonTheme.OUTLINE}
@@ -53,6 +53,6 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                     {t('Редактировать')}
                 </Button>
             )}
-        </div>
+        </HStack>
     );
 });

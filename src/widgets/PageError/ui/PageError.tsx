@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui';
+import { Button, VStack } from 'shared/ui';
 import { memo } from 'react';
 import cls from './PageError.module.scss';
 
@@ -17,9 +17,9 @@ export const PageError = memo(({ className } : PageErrorProps) => {
     };
 
     return (
-        <div className={classNames(cls.PageError, {}, [className])}>
+        <VStack gap="16" align="center" justify="center" className={classNames(cls.PageError, {}, [className])}>
             <p>{t('Произошла непредвиденная ошибка')}</p>
             <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-        </div>
+        </VStack>
     );
 });

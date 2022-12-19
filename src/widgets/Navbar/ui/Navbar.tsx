@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    AppLink, AppLinkTheme, Button, Text, TextTheme,
+    AppLink, AppLinkTheme, Button, HStack, Text, TextTheme,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +37,7 @@ export const Navbar = memo(({ className }:NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.navbar, {}, [className])}>
+            <HStack justify="between" className={classNames(cls.navbar, {}, [className])}>
                 <div>
                     <Text
                         className={cls.appName}
@@ -57,16 +57,16 @@ export const Navbar = memo(({ className }:NavbarProps) => {
                         {t('Выйти')}
                     </Button>
                 </div>
-            </div>
+            </HStack>
         );
     }
 
     return (
-        <header className={classNames(cls.navbar, {}, [className])}>
+        <HStack justify="end" className={classNames(cls.navbar, {}, [className])}>
             <Button onClick={handleOpenLoginModal}>
                 {t('Войти')}
             </Button>
             {isOpenLoginModal && <LoginModal isOpen={isOpenLoginModal} onClose={handleCloseLoginModal} />}
-        </header>
+        </HStack>
     );
 });

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import {
     classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
 } from 'shared/lib';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
     Avatar, Text, TextAlign, TextSize,

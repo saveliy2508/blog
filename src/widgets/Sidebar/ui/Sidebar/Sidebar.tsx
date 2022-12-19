@@ -6,6 +6,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItem';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
@@ -34,9 +35,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     return (
         <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <div className={cls.links}>
+            <VStack role="navigation" gap="16" className={cls.links}>
                 {itemList}
-            </div>
+            </VStack>
             <div className={cls.controls}>
                 <LangSwitcher />
                 <ThemeSwitcher />

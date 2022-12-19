@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib';
 import { memo } from 'react';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -18,7 +18,7 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentList, {}, [className])}>
+            <VStack gap="16" max className={classNames('', {}, [className])}>
                 <CommentCard
                     className={cls.comment}
                     isLoading
@@ -31,20 +31,20 @@ export const CommentList = memo((props: CommentListProps) => {
                     className={cls.comment}
                     isLoading
                 />
-            </div>
+            </VStack>
         );
     }
 
     if (!comments?.length) {
         return (
-            <div className={classNames(cls.CommentList, {}, [className])}>
+            <VStack gap="16" max className={classNames(cls.CommentList, {}, [className])}>
                 <Text title={t('Комментариев нет')} />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <VStack gap="8" max className={classNames(cls.CommentList, {}, [className])}>
             {comments?.length
                 ? comments.map((comment) => (
                     <CommentCard
@@ -55,6 +55,6 @@ export const CommentList = memo((props: CommentListProps) => {
                     />
                 ))
                 : <Text text={t('Комментарии отсутствуют')} />}
-        </div>
+        </VStack>
     );
 });

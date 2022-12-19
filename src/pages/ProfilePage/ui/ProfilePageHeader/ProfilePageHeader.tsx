@@ -7,6 +7,7 @@ import {
 import { useSelector } from 'react-redux';
 import { useCallback, useMemo } from 'react';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -46,11 +47,11 @@ export const ProfilePageHeader = ({ className } : ProfilePageHeaderProps) => {
     );
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" align="center" className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
             {canEdit
                 ? (
-                    <div className={cls.bntsWrapper}>
+                    <HStack justify="end" max className={cls.btnsWrapper}>
                         {readonly
                             ? (
                                 <Button
@@ -79,9 +80,9 @@ export const ProfilePageHeader = ({ className } : ProfilePageHeaderProps) => {
                                     </Button>
                                 </div>
                             )}
-                    </div>
+                    </HStack>
                 ) : null}
 
-        </div>
+        </HStack>
     );
 };

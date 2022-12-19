@@ -6,8 +6,9 @@
     transition: width 0.5s;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+    padding-left: 10px;
 }
 
 .controls {
@@ -43,10 +44,6 @@
 }
 
 .links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
     svg {
         fill: var(--inverted-secondary-color);
     }

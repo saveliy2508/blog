@@ -66,3 +66,17 @@ PrimaryL.args = {
     text: 'Descript onDescri ptionDescription Description',
     size: TextSize.L,
 };
+
+export const PrimaryM = Template.bind({});
+PrimaryM.args = {
+    title: 'Title lorem ipsum',
+    text: 'Descript onDescri ptionDescription Description',
+    size: TextSize.M,
+};
+
+export const PrimaryS = Template.bind({});
+PrimaryS.args = {
+    title: 'Title lorem ipsum',
+    text: 'Descript onDescri ptionDescription Description',
+    size: TextSize.S,
+};
