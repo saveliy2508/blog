@@ -2,12 +2,13 @@ import { memo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    AppLink, AppLinkTheme, Button, HStack, Text, TextTheme,
+    AppLink, AppLinkTheme, Avatar, Button, HStack, Text, TextTheme,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -45,7 +46,7 @@ export const Navbar = memo(({ className }:NavbarProps) => {
                         theme={TextTheme.INVERTED}
                     />
                 </div>
-                <div>
+                <div className={cls.right}>
                     <AppLink
                         to={RoutePath.article_create}
                         theme={AppLinkTheme.SECONDARY}
@@ -53,9 +54,26 @@ export const Navbar = memo(({ className }:NavbarProps) => {
                     >
                         {t('Создать статью')}
                     </AppLink>
-                    <Button onClick={handleLogout}>
-                        {t('Выйти')}
-                    </Button>
+                    <Dropdown
+                        direction="bottom left"
+                        className={cls.dropdown}
+                        items={[
+                            {
+                                content: t('Профиль пользователя'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: handleLogout,
+                            },
+                        ]}
+                        trigger={(
+                            <Avatar
+                                size={30}
+                                src={authData.avatar}
+                            />
+                        )}
+                    />
                 </div>
             </HStack>
         );

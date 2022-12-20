@@ -6,6 +6,11 @@
     color: var(--primary-color);
 }
 
+.right {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .appName {
     margin-left: 15px;
 }
