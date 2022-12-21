@@ -589,6 +589,12 @@
       "userId": "1",
       "text": "qweq",
       "id": "MEiJoZo"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "qweqeqwe",
+      "id": "x0Osyjr"
     }
   ],
   "users": [
@@ -611,8 +617,8 @@
       "id": "1",
       "first": "Савелий",
       "lastname": "Вольский",
-      "age": 23,
-      "currency": "EUR",
+      "age": 16,
+      "currency": "RUB",
       "country": "Ukraine",
       "city": "Saint-Petersburgqq",
       "username": "admin",

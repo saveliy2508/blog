@@ -8,7 +8,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Mods } from 'shared/lib/classNames/classNames';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
-import { Page } from 'widgets/Page/Page';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -57,9 +56,14 @@ export const ProfileCard = (props : ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <VStack
+                max
+                justify="center"
+                align="center"
+                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+            >
                 <Loader />
-            </HStack>
+            </VStack>
         );
     }
 
