@@ -6,7 +6,9 @@ import {
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
@@ -19,6 +21,8 @@ export const Navbar = memo(({ className }:NavbarProps) => {
     const { t } = useTranslation();
 
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
 
@@ -35,6 +39,8 @@ export const Navbar = memo(({ className }:NavbarProps) => {
     const handleLogout = () => {
         dispatch(userActions.logout());
     };
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -58,6 +64,10 @@ export const Navbar = memo(({ className }:NavbarProps) => {
                         direction="bottom left"
                         className={cls.dropdown}
                         items={[
+                            ...(isAdminPanelAvailable ? [{
+                                content: t('Админка'),
+                                href: RoutePath.admin_panel,
+                            }] : []),
                             {
                                 content: t('Профиль пользователя'),
                                 href: RoutePath.profile + authData.id,
