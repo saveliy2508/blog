@@ -13,7 +13,6 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slices/ArticlesPageSlice';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import cls from './ArticleInfiniteList.module.scss';
 
 interface ArticleInfiniteListProps {
 }
@@ -42,7 +41,6 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
             isLoading={isLoading}
             view={view}
             articles={articles}
-            className={cls.list}
         />
     );
 });
