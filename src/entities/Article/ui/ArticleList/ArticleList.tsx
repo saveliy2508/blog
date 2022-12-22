@@ -73,12 +73,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                {/* // @ts-ignore */}
                 <Text size={TextSize.L} title={t('Статей нет')} />
             </div>
         );
     }
 
     return (
+        // @ts-ignore
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
@@ -91,10 +93,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 scrollTop,
             }) => (
                 <div
+                    // @ts-ignore
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {virtualized ? (
+                    // @ts-ignores
                         <List
                             height={height ?? 700}
                             rowCount={rowCount}

@@ -29,3 +29,9 @@ type DeepPartial<T> = T extends object ? {
 type OptionalRecord<K extends keyof any, T> = {
     [P in K]?: T
 }
+
+declare module 'i18n' {
+    interface CustomTypeOptions {
+        returnNull: false;
+    }
+}

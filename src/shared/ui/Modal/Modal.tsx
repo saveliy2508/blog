@@ -1,5 +1,5 @@
 import {
-    FC, MouseEvent, MutableRefObject, useCallback, useEffect, useRef, useState,
+    MouseEvent, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib';
 import { Mods } from 'shared/lib/classNames/classNames';
@@ -7,15 +7,16 @@ import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string,
-    isOpen?: boolean,
-    lazy?: boolean,
-    onClose?: ()=> void
+    className?: string;
+    isOpen?: boolean;
+    lazy?: boolean;
+    onClose?: ()=> void;
+    children: ReactNode;
 }
 
-export const Modal: FC<ModalProps> = ({
+export const Modal = ({
     className, children, isOpen, lazy, onClose,
-}) => {
+} : ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
 
     const [isMounted, setIsMounted] = useState(false);

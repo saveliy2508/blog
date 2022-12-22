@@ -595,6 +595,18 @@
       "userId": "1",
       "text": "qweqeqwe",
       "id": "x0Osyjr"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "q",
+      "id": "6G_veuU"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "q",
+      "id": "-eYf_Bv"
     }
   ],
   "users": [
@@ -602,20 +614,26 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://rebrainme.com/blog/wp-content/uploads/2020/05/haker.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"]
+      "roles": [
+        "USER"
+      ]
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"]
+      "roles": [
+        "MANAGER"
+      ]
     }
   ],
   "profile": [
