@@ -31,5 +31,21 @@ Light.args = {
 };
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+    trigger: <Button>Open</Button>,
+    items: [
+        {
+            content: 'first',
+        },
+        {
+            content: 'first',
+        },
+        {
+            content: 'first',
+        },
+        {
+            content: 'first',
+        },
+    ],
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

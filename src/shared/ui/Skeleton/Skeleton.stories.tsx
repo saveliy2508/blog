@@ -28,15 +28,15 @@ NormalAnime.args = {
     width: '100%',
     height: 100,
 };
-NormalAnime.decorators = [ThemeDecorator(Theme.ANIME)];
+NormalAnime.decorators = [ThemeDecorator(Theme.ORANGE)];
 
-export const CircleAnime = Template.bind({});
-CircleAnime.args = {
+export const CircleOrange = Template.bind({});
+CircleOrange.args = {
     border: '50%',
     width: 100,
     height: 100,
 };
-CircleAnime.decorators = [ThemeDecorator(Theme.ANIME)];
+CircleOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {
