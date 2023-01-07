@@ -1,6 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib';
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import {
+    CSSProperties,
+    DetailedHTMLProps, HTMLAttributeAnchorTarget, memo, StyleHTMLAttributes, useCallback,
+} from 'react';
 import {
     AppLink,
     Avatar, Button, ButtonTheme, Card, Icon, Text,
@@ -19,12 +22,17 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    style?: CSSProperties;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
     const {
-        className, article, view, target,
+        className,
+        article,
+        view,
+        target,
+        style,
     } = props;
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -40,7 +48,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         const textBlock = article.blocks
             .find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div style={style} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={30} className={cls.avatar} src={article.user.avatar} />
@@ -67,7 +75,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div style={style} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <AppLink target={target} to={RoutePath.article_details + article.id}>
                 <Card>
                     <div className={cls.imageWrapper}>

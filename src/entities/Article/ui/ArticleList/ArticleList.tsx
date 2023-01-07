@@ -1,9 +1,14 @@
 import { classNames } from 'shared/lib';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import {
+    CSSProperties,
+    HTMLAttributeAnchorTarget,
+    memo,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui';
-import { List, ListRowProps, WindowScroller } from 'react-virtualized';
-import { PAGE_ID } from 'widgets';
+import { FixedSizeGrid } from 'react-window';
+// @ts-ignore
+import AutoSizer from 'react-virtualized-auto-sizer';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
@@ -39,92 +44,72 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const isBig = view === ArticleView.BIG;
     const itemsPerRow = isBig ? 1 : 4;
     const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
+    const listHeight = isBig ? 700 * rowCount : Math.ceil(330 * rowCount);
 
-    const rowRender = ({
-        index, isScrolling, key, style,
-    }: ListRowProps) => {
-        const items = [];
-        const fromIndex = index * itemsPerRow;
-        const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
-
-        for (let i = fromIndex; i < toIndex; i += 1) {
-            items.push(
+    const cell = ({ columnIndex, rowIndex, style } : {
+        columnIndex: number,
+        rowIndex: number,
+        style: CSSProperties,
+    }) => {
+        const index = !isBig ? (rowIndex) * 4 + (columnIndex + 1) : rowIndex;
+        if (articles[index] !== undefined) {
+            return (
                 <ArticleListItem
-                    article={articles[i]}
+                    style={style}
+                    article={articles[index]}
                     view={view}
                     target={target}
-                    key={`str${i}`}
+                    key={`cell${index}`}
                     className={cls.card}
-                />,
+                />
             );
         }
-
-        return (
-            <div
-                key={key}
-                style={style}
-                className={cls.row}
-            >
-                {items}
-            </div>
-        );
+        return null;
     };
 
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {/* // @ts-ignore */}
                 <Text size={TextSize.L} title={t('Статей нет')} />
             </div>
         );
     }
 
     return (
-        // @ts-ignore
-        <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
-        >
-            {({
-                height,
-                width,
-                registerChild,
-                onChildScroll,
-                isScrolling,
-                scrollTop,
-            }) => (
-                <div
-                    // @ts-ignore
-                    ref={registerChild}
-                    className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-                >
-                    {virtualized ? (
-                    // @ts-ignores
-                        <List
-                            height={height ?? 700}
+        <>
+            {virtualized ? (
+                <AutoSizer>
+                    {/* @ts-ignore */}
+                    {({ height, width }) => (
+                        <FixedSizeGrid
+                            columnCount={itemsPerRow}
+                            columnWidth={isBig ? 1000 : 260}
+                            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                            height={listHeight}
                             rowCount={rowCount}
                             rowHeight={isBig ? 700 : 330}
-                            rowRenderer={rowRender}
-                            width={width ? width - 80 : 700}
-                            autoHeight
-                            onScroll={onChildScroll}
-                            isScrolling={isScrolling}
-                            scrollTop={scrollTop}
-                        />
-                    )
-                        : (
-                            articles.map((item) => (
-                                <ArticleListItem
-                                    article={item}
-                                    view={view}
-                                    key={item.id}
-                                    className={cls.card}
-                                    target={target}
-                                />
-                            ))
-                        )}
-                    {isLoading && getSkeletons(view)}
-                </div>
+                            width={width}
+                        >
+                            {cell}
+                        </FixedSizeGrid>
+                    )}
+                </AutoSizer>
+            ) : (
+                articles.map((item) => (
+                    <ArticleListItem
+                        article={item}
+                        view={view}
+                        key={item.id}
+                        className={cls.card}
+                        target={target}
+                    />
+                ))
             )}
-        </WindowScroller>
+            <div
+                className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            >
+                {isLoading && getSkeletons(view)}
+            </div>
+        </>
     );
 });
