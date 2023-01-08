@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { Dropdown } from './Dropdown';
-import { Button } from '..';
+import { Button } from '../../../index';
 
 export default {
     title: 'shared/Dropdown',
