@@ -6,5 +6,6 @@ export {
     counterActions,
     counterReducer,
     Counter,
-    CounterSchema,
 };
+
+export type { CounterSchema };

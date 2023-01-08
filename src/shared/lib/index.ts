@@ -3,5 +3,7 @@ import { classNames } from './classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from './components/DynamicModulesLoader/DynamicModuleLoader';
 
 export {
-    classNames, useAppDispatch, DynamicModuleLoader, ReducersList,
+    classNames, useAppDispatch, DynamicModuleLoader,
 };
+
+export type { ReducersList };

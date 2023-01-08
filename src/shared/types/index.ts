@@ -1,2 +1,2 @@
 export type SortOrder = 'asc' | 'desc'
-export { DropdownDirection } from 'shared/types/ui';
+export type { DropdownDirection } from 'shared/types/ui';
