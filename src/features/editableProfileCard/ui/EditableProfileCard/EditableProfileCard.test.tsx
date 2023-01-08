@@ -6,7 +6,7 @@ import { Country } from 'entities/Country';
 import userEvent from '@testing-library/user-event';
 import { $api } from 'shared/api/api';
 import { profileReducer } from '../../model/slices/editableProfileCardSlice';
-import { EditableProfileCard } from './editableProfileCard';
+import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {
     id: '1',
