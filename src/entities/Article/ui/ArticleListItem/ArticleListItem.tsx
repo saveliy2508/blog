@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import {
     CSSProperties,
     DetailedHTMLProps, HTMLAttributeAnchorTarget, memo, StyleHTMLAttributes, useCallback,
@@ -7,9 +7,9 @@ import {
 import {
     AppLink,
     Avatar, Button, ButtonTheme, Card, Icon, Text,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';

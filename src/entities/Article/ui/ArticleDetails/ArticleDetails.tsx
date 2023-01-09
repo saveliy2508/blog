@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import {
     classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
-} from 'shared/lib';
+} from '@/shared/lib';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import {
     Avatar, Text, TextAlign, TextSize,
     Skeleton,
     Icon,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import CalendarIcon from 'shared/assets/icons/date-icon.svg';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import CalendarIcon from '@/shared/assets/icons/date-icon.svg';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';

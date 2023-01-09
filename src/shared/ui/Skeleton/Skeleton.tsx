@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import { CSSProperties, memo } from 'react';
 import cls from './Skeleton.module.scss';
 

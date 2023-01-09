@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import {
     DetailedHTMLProps, HTMLAttributes, memo, ReactNode,
 } from 'react';
-import { Mods } from 'shared/lib/classNames/classNames';
+import { Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'

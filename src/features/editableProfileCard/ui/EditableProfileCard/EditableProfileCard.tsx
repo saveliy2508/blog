@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
+import { DynamicModuleLoader, ReducersList, useAppDispatch } from '@/shared/lib';
 import { useSelector } from 'react-redux';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Text, TextTheme, VStack } from 'shared/ui';
-import { ProfileCard } from 'entities/Profile';
-import { ValidateProfileError } from 'entities/Profile/model/consts/consts';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Text, TextTheme, VStack } from '@/shared/ui';
+import { ProfileCard } from '@/entities/Profile';
+import { ValidateProfileError } from '@/entities/Profile/model/consts/consts';
 import {
     EditableProfileCardHeader,
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';

@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import {
     classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
-} from 'shared/lib';
-import { Page } from 'widgets';
+} from '@/shared/lib';
+import { Page } from '@/widgets';
 import { ArticleInfiniteList } from '../../ui/ArticleInfiniteList/ArticleInfiniteList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';
 import { ArticlesPageFilters } from '../../ui/ArticlesPageFilters/ArticlesPageFilters';

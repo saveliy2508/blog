@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import {
     classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
-} from 'shared/lib';
+} from '@/shared/lib';
 import { memo, useCallback } from 'react';
-import { ButtonTheme, Button, Input } from 'shared/ui';
+import { ButtonTheme, Button, Input } from '@/shared/ui';
 import { useSelector } from 'react-redux';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import {

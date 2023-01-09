@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui';
+import { Button, ButtonTheme } from '@/shared/ui';
 
 interface LangSwitcherProps {
     short?: boolean

@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib';
+import { useAppDispatch } from '@/shared/lib';
 import { memo } from 'react';
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useSearchParams } from 'react-router-dom';
-import { Text } from 'shared/ui';
+import { Text } from '@/shared/ui';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,

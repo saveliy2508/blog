@@ -1,11 +1,11 @@
 import { memo, useCallback } from 'react';
 import {
     classNames, useAppDispatch, DynamicModuleLoader, ReducersList,
-} from 'shared/lib';
+} from '@/shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
     Button, Input, Text, TextTheme,
-} from 'shared/ui';
+} from '@/shared/ui';
 import { useSelector } from 'react-redux';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';

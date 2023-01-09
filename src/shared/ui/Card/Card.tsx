@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 import cls from './Card.module.scss';
 

@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import { memo } from 'react';
 import {
     AppLink, Avatar, Skeleton, Text, VStack,
-} from 'shared/ui';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+} from '@/shared/ui';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 

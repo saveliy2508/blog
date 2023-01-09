@@ -1,4 +1,4 @@
-import { Button } from 'shared/ui';
+import { Button } from '@/shared/ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';

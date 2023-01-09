@@ -1,4 +1,4 @@
-import { Loader, Modal } from 'shared/ui';
+import { Loader, Modal } from '@/shared/ui';
 import { memo, Suspense } from 'react';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 

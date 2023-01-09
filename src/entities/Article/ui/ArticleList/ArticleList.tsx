@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import {
     CSSProperties,
     HTMLAttributeAnchorTarget,
     memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from 'shared/ui';
+import { Text, TextSize } from '@/shared/ui';
 import { FixedSizeGrid } from 'react-window';
 // @ts-ignore
 import AutoSizer from 'react-virtualized-auto-sizer';

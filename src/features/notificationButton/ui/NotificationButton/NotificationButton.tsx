@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import { memo, useState } from 'react';
 import {
     Button, ButtonTheme, Icon, Popover,
-} from 'shared/ui';
-import NotificationIcon from 'shared/assets/icons/bell-icon.svg';
-import { NotificationList } from 'entities/Notification';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+} from '@/shared/ui';
+import NotificationIcon from '@/shared/assets/icons/bell-icon.svg';
+import { NotificationList } from '@/entities/Notification';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

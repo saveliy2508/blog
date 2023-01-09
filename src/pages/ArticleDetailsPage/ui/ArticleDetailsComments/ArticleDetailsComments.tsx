@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { classNames, useAppDispatch } from 'shared/lib';
+import { classNames, useAppDispatch } from '@/shared/lib';
 import { memo, useCallback } from 'react';
-import { Text } from 'shared/ui';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { CommentList } from 'entities/Comment';
+import { Text } from '@/shared/ui';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList } from '@/entities/Comment';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib';
+import { classNames } from '@/shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button, VStack } from 'shared/ui';
+import { Button, VStack } from '@/shared/ui';
 import { memo } from 'react';
 import cls from './PageError.module.scss';
 
