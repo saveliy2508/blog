@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Counter } from '@/entities/Counter';
 import { memo } from 'react';
+import { Counter } from '@/entities/Counter';
 import { Page } from '@/widgets/Page/Page';
-import { NotificationButton } from '@/features/notificationButton';
+import { StartRating } from '@/shared/ui/StarRating/StartRating';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = memo(() => {
     const { t } = useTranslation('main');
@@ -12,6 +13,11 @@ const MainPage = memo(() => {
             {t('Главная страница')}
             <div>
                 <Counter />
+                <RatingCard
+                    title="Как вам статья?"
+                    feedbackTitle="Оставьте отзыв о статье"
+                    hasFeedback
+                />
             </div>
         </Page>
     );
